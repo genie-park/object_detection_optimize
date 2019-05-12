@@ -13,11 +13,13 @@
     "override_resizer_shape": [600,600],
     "output_path" : "optimized/fasterRCNN_INT8.pb",
     "calib_images_dir": "data/dataset/train2017",
-    "calib_image_shape": [600,600]
+    "calib_image_shape": [600,600],
+    "num_calib_images": 100
+   
   },
   "benchmark_config": {
-    "images_dir": "data/dataset/val2017",
-    "annotation_path": "data/dataset/annotations/instances_val2017.json",
+    "images_dir": "/home/embian/extern/dataset/val2017",
+    "annotation_path": "/home/embian/extern/dataset/annotations/instances_val2017.json",
     "batch_size": 1,
     "num_images": 4096,
     "image_shape": [600, 600],

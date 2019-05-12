@@ -76,9 +76,9 @@ def test(test_config_path):
         checkpoint_path=checkpoint_path,
         **test_config['optimization_config'])
 
-    images_dir, annotation_path = download_dataset('val2017', 'data/dataset')
-    test_config['benchmark_config']['images_dir'] = images_dir
-    test_config['benchmark_config']['annotation_path'] = annotation_path
+    images_dir, annotation_path = download_dataset('val2017',  test_config['benchmark_config']['images_dir'])
+    #test_config['benchmark_config']['images_dir'] = images_dir
+    #test_config['benchmark_config']['annotation_path'] = annotation_path
 
     # benchmark optimized model
     statistics = benchmark_model(

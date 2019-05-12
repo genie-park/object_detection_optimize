@@ -7,6 +7,6 @@
     "remove_assert": true,
     "max_batch_size": 1, 
     "override_resizer_shape": [640, 360],
-    "output_path" : "data/optimized/ui_tf32.pb"
+    "output_path" : "../extern/optimized/ui_tf32.pb"
   }
 }

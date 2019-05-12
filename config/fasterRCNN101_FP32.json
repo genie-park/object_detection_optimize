@@ -1,7 +1,7 @@
 {
   "source_model": {
     "model_name": "faster_rcnn_resnet101_coco",
-    "output_dir": "data/models"
+    "output_dir": "../extern/dataset/models"
   },
   "optimization_config": {
     "use_trt": true,
@@ -11,11 +11,12 @@
     "remove_assert": true,
     "max_batch_size": 1,
     "override_resizer_shape": [600,600],
-    "output_path" : "optimized/fasterRCNN_fp32.pb"
+    "output_path" : "../extern/optimized/fasterRCNN_fp32.pb"
   },
+
   "benchmark_config": {
-    "images_dir": "data/dataset/val2017",
-    "annotation_path": "data/dataset/annotations/instances_val2017.json",
+    "images_dir": "../extern/dataset/val2017",
+    "annotation_path": "../extern/dataset/annotations/instances_val2017.json",
     "batch_size": 1,
     "num_images": 4096,
     "image_shape": [600, 600],

@@ -1,0 +1,31 @@
+{
+  "source_model": {
+    "model_name": "ssd_mobilenet_v1_coco",
+    "output_dir": "../extern/models"
+  },
+  "optimization_config": {
+    "use_trt": true,
+    "precision_mode": "INT8",
+    "force_nms_cpu": true,
+    "replace_relu6": true,
+    "remove_assert": true,
+    "max_batch_size": 1,
+    "override_resizer_shape": [300,300],
+    "output_path" : "../extern/optimized/fasterRCNN_INT8.pb",
+    "calib_images_dir": "../extern/dataset/train2017",
+    "calib_image_shape": [300,300],
+    "num_calib_images": 100
+   
+  },
+  "benchmark_config": {
+    "images_dir": "../extern/dataset/val2017",
+    "annotation_path": "../extern/dataset/annotations/instances_val2017.json",
+    "batch_size": 1,
+    "num_images": 4096,
+    "image_shape": [300, 300],
+    "output_path": "../extern/stats/ssd_coco_trt_INT8.json"
+  },
+  "assertions": [
+    "statistics['map'] > (0.268 - 0.005)"
+  ]
+}
