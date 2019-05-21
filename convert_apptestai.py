@@ -86,15 +86,10 @@ def test(test_config_path):
         test_config = json.load(f)
         print(json.dumps(test_config, sort_keys=True, indent=4))
 
-    config_path='data/models/ui_object_detector/pipeline.config'
-    checkpoint_path='data/models/ui_object_detector/model.ckpt-2000000'
-    # optimize model using source model
     frozen_graph = optimize_model(
-        config_path=config_path,
-        checkpoint_path=checkpoint_path,
         **test_config['optimization_config'])
 
-    benchmark_model(frozen_graph, 'data/tests/')
+    benchmark_model(frozen_graph, '../extern/tests/')
 
 
 
@@ -124,7 +119,7 @@ def benchmark_model(frozen_graph, images_dir):
             # load batches from coco dataset
             for image_path in glob.glob(images_dir+ "*.jpg"):
                 images=[]
-                image = _read_image(image_path, (340,600))
+                image = _read_image(image_path, (360,640))
                 images.append(image)
 
                # run num_warmup_iterations outside of timing
